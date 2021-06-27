@@ -15,11 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/*
+*           Made by Alfred Roos
+*           2021-06-27
+ * */
+
 public class Tetris extends JPanel {
 
     /*
     TODO
-    can rotation(check so you can rotate)
     preview
      */
 
