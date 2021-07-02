@@ -226,21 +226,18 @@ public class Tetris extends JPanel {
     private void removeRow(int i) {
 
         removeY = i;
-        Thread thread = new Thread(){
-            public void run(){
-                for(Cube cube:mesh.get(i))
-                {
-                    removeRow.add(cube);
-                    try {
-                        Thread.sleep(20);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    repaint();
-                }
+        downSpeed = 0;
+        for(Cube cube:mesh.get(i))
+        {
+            removeRow.add(cube);
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        };
-        thread.start();
+            repaint();
+        }
+        downSpeed = dimension;
         try {
             Thread.sleep(400);
         } catch (InterruptedException e) {
