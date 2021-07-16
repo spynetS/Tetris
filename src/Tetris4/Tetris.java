@@ -24,10 +24,10 @@ public class Tetris extends JPanel {
 
     /*
     TODO
-	when through border onece
+	when through border once
 	
 	FIX ROTATION
-	rotation should have a poviot
+	rotation should have a pivot
 	when rotating when you cant the piece should be moved so the rotation will happen
     
 	preview
@@ -51,7 +51,6 @@ public class Tetris extends JPanel {
 
     public Tetris() {
 
-
         InitializeMesh();
         LoadHighScore();
         templayer= new Shape(0,0,Shapes.l,getImage(cubeImageSrc+getCubeImageSrc(Shapes.t)));
@@ -60,7 +59,6 @@ public class Tetris extends JPanel {
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-
             }
             @Override
             public void keyPressed(KeyEvent e) {
