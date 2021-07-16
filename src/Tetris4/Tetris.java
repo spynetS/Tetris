@@ -117,7 +117,6 @@ public class Tetris extends JPanel {
     public BufferedImage getImage (String path){
         BufferedImage image = null;
         try {
-           // image = ImageIO.read(new File(path));
             image = ImageIO.read(this.getClass().getResourceAsStream(path));
         } catch (IOException e) {
             e.printStackTrace();
@@ -130,7 +129,7 @@ public class Tetris extends JPanel {
         mesh.clear();
         InitializeMesh();
         try{
-        if(scorE>Integer.valueOf(highScore.getText().split(":")[1].split(" ")[1])){
+        if(scorE>Integer.parseInt(highScore.getText().split(":")[1].split(" ")[1])){
             FileWriter fw = new FileWriter(System.getProperty("user.home")+"\\Tetris\\highscore.txt");
             fw.write(String.valueOf(scorE));
             fw.close();
@@ -223,7 +222,6 @@ public class Tetris extends JPanel {
                     mesh.get(i).get(ii).setY((i)*dimension);
             }
         }
-        //printMesh();
     }
     ArrayList<Cube> removeRow = new ArrayList<>();
     int removeY = 0;
@@ -261,7 +259,6 @@ public class Tetris extends JPanel {
                     cubecount++;
                 }
                 if(cubecount==width) {
-                   // printMesh();
                     removeRow(i);
                     scorE+=100;
                     score.setText("Score: "+String.valueOf(scorE));
@@ -295,7 +292,6 @@ public class Tetris extends JPanel {
         //Draws the grid
         for(int x = 0; x<=width;x++){
             for(int y = 0; y<=height;y++) {
-                //g.drawImage(getImage(cubeImageSrc+"blackCube.png"),x*dimension,y*dimension,dimension,dimension,null);
                 g.setColor(Color.white);
                 g.drawRect(x*dimension,y*dimension,dimension,dimension);
             }
@@ -314,15 +310,12 @@ public class Tetris extends JPanel {
     private void DrawPlayerShape(Graphics g){
         for (Cube cube:
              player.getCubes()) {
-          //  System.out.println(cube.getX()+" "+cube.getY());
             g.drawImage(cube.getColor(),cube.getX(),cube.getY(),dimension,dimension,null);
         }
     }
     private void DrawTempPlayerShape(Graphics g){
         for (Cube cube:
                 templayer.getCubes()) {
-            //  System.out.println(cube.getX()+" "+cube.getY());
-          //  g.drawImage(cube.getColor(),cube.getX(),cube.getY(),dimension,dimension,null);
         }
     }
     private void DrawRemoveRow(Graphics g){
