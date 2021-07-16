@@ -24,7 +24,13 @@ public class Tetris extends JPanel {
 
     /*
     TODO
-    preview
+	when through border onece
+	
+	FIX ROTATION
+	rotation should have a poviot
+	when rotating when you cant the piece should be moved so the rotation will happen
+    
+	preview
      */
 
     public static final int width = 12;
@@ -356,7 +362,6 @@ public class Tetris extends JPanel {
 
         boxes[0].createGlue();
         boxes[1].createGlue();
-
 
         container.add(boxes[0]);
         container.add(boxes[1]);
